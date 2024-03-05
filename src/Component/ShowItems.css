@@ -1,0 +1,23 @@
+.ItemsVisibleDiv{
+    height:auto;
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color:white;
+    margin-top: 10px;
+}
+.VisibleItemParent {
+    border:0px solid blue;
+    margin:10px;
+    padding:20px;
+    border-radius: 30px;
+    background-color: aliceblue;
+    text-align: left;
+    color:black;
+}
+.VisibleItemParent > div {
+  border-bottom: 2px solid rgb(215, 227, 215);
+}
+.PriceOfItem {
+    color:brown
+}
