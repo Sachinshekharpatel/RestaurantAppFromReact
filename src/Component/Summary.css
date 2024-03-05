@@ -28,3 +28,14 @@
     text-align: center;
     background-color: rgb(75, 53, 53);
   }
+  .AddButton{
+    background-color: brown;
+    border-radius: 20px;
+    padding:4px;
+    outline: none;
+  }
+  .VisibleItemParent > div {
+    display: flex;
+    justify-content: space-between;
+  }
+

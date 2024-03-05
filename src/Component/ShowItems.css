@@ -21,3 +21,7 @@
 .PriceOfItem {
     color:brown
 }
+.AmountAndAddButton {
+    margin-top:50px;
+    display:'block'
+}

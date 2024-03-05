@@ -14,12 +14,20 @@ function ShowItems(params) {
              <div className="VisibleItemParent">
              {menu.map((item) => {
               return (
+                <React.Fragment>
                  <div key={item.Id}>
-                  <h3>{item.Name}</h3>
-                  <i>{item.Description}</i>
-                  <h3 className='PriceOfItem'>Rs-{item.Price}</h3>
-                </div>
-                    )
+                    <div>
+                        <h3>{item.Name}</h3>
+                        <i>{item.Description}</i>
+                        <h3 className='PriceOfItem'>Rs-{item.Price}</h3>
+                    </div>
+                    <div className='AmountAndAddButton'>
+                        <label>Amount <input min='0' type='number'></input></label>
+                        <button className='AddButton'>+Add</button>
+                    </div>
+                 </div>
+                </React.Fragment>
+                  )
               })}
              </div>
             </div>
