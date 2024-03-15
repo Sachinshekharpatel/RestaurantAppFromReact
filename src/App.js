@@ -1,12 +1,14 @@
 import Summary from "./Component/RestaurantSummary";
-import ShowItems from "./Component/ShowItemOnScreen";
+import ShowItemsOnScreen from "./Component/ShowItemOnScreen";
 import Header from "./Component/header";
 import CartModal from "./Component/CartModal";
 import { useState } from "react";
+import CartProvider from "./Component/CartProvider";
+
 function App() {
 
   const [CartClicked,setCartClicked]= useState(false);
-
+  
 
   const cartmodalOpen = ()=>{
     console.log("Header Section Cart Button Clicked That Will Open Modal")
@@ -17,15 +19,16 @@ function App() {
     setCartClicked(false);
   }
   return (
-    <div style={{margin:'10px'}}>
-      
-      <Header cartmodalOpen={cartmodalOpen}></Header>
-      <Summary></Summary>
-      <ShowItems></ShowItems>
-      {CartClicked && 
-        <CartModal cartModalClosed={cartModalClosed}></CartModal>
-      }
-    </div>
+    <CartProvider>
+      <div style={{margin:'10px'}}> 
+        <Header cartmodalOpen={cartmodalOpen}></Header>
+        <Summary></Summary>
+        <ShowItemsOnScreen></ShowItemsOnScreen>
+        {CartClicked && 
+          <CartModal cartModalClosed={cartModalClosed}></CartModal>
+        }
+      </div>
+    </CartProvider>
   );
 }
 
