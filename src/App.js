@@ -23,7 +23,7 @@ function App() {
       <div style={{margin:'10px'}}> 
         <Header cartmodalOpen={cartmodalOpen}></Header>
         <Summary></Summary>
-        <ShowItemsOnScreen></ShowItemsOnScreen>
+        <ShowItemsOnScreen ></ShowItemsOnScreen>
         {CartClicked && 
           <CartModal cartModalClosed={cartModalClosed}></CartModal>
         }

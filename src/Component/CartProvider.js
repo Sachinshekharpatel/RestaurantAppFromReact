@@ -5,16 +5,15 @@ const CartProvider = (props) => {
 const [items,setItems] = useState([]);  
  
   const addItemToCartHandler = (item) => {
-  
-   setItems([...items,item])
-  
+   setItems([...items,item]) 
   };
   useEffect(()=>{
     console.log(items)
   },[items.length])
 
   const removeItemFromCartHandler = (id) => {
-   
+    const updatedCartItems = items.filter(item => item.Key !== id);   
+    setItems(updatedCartItems);
   };
 
   const cartContext = {

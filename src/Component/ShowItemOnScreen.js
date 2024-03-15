@@ -1,13 +1,13 @@
-import React ,{useState, useEffect, createContext, useContext} from "react";
+import React ,{useState, useEffect, createContext, useContext, useRef} from "react";
 import "./ShowItems.css";
 import CartContext from "./cart-context";
 
 
-function ShowItemsOnScreen() {
+function ShowItemsOnScreen(props) {
   const menu = [
-    { Name: "Samosa", Id: "1", Price: 29, Description: "Rewa speciality" },
-    { Name: "Pizza", Id: "2", Price: 399, Description: "Blue Toppin" },
-    { Name: "Maggie", Id: "3", Price: 99, Description: "Hotel speciality" },
+    { Name: "Samosa",Key:Math.random(), Id: "1", Price: 29, Description: "Rewa speciality" },
+    { Name: "Pizza",Key:Math.random(), Id: "2", Price: 399, Description: "Blue Toppin" },
+    { Name: "Maggie", Key:Math.random(),Id: "3", Price: 99, Description: "Hotel speciality" },
   ];
 
  const cartCtx = useContext(CartContext)
@@ -18,7 +18,7 @@ const[numberOfItem , setNumberOfItem] = useState({});
  const itemAdded = (itemId,itemName,item)=>{
   
   console.log(itemName)
-  
+
   const updatedNumberOfItem = {
     ...numberOfItem,
     [itemId]: (numberOfItem[itemId] || 0) + 1
@@ -26,7 +26,7 @@ const[numberOfItem , setNumberOfItem] = useState({});
   setNumberOfItem(updatedNumberOfItem);
   
     updateCartItem();
-  
+    
     // cartCtx.items.push(item)
     cartCtx.addItem(item)
     // console.log(cartCtx);
@@ -37,7 +37,7 @@ const[numberOfItem , setNumberOfItem] = useState({});
   setItemInCart(itemInCart+1);
   // console.log(itemInCart+1);
  }
-
+const inputRef = useRef();
 
   return (
     
@@ -55,7 +55,7 @@ const[numberOfItem , setNumberOfItem] = useState({});
                   </div>
                   <div className="AmountAndAddButton">
                     <label>
-                      Amount <input min='0' type="number" readOnly value={numberOfItem[item.Id] || 0}></input>
+                      Amount <input ref={inputRef} min='0' type="number" readOnly value={numberOfItem[item.Id] || 0}></input>
                     </label>
                     <button onClick={()=>itemAdded(item.Id,item.Name,item)} className="AddButton">+Add</button>
                   </div>
